@@ -11,6 +11,8 @@ uniform mat4 MVP;
 uniform int Frame;
 uniform int Rows;
 uniform int Cols;
+uniform int FrameR;
+uniform int FrameC;
 
 out vec4 color;
 out vec2 uv;
@@ -29,6 +31,8 @@ void main()
   y = vec3(sin(Rot), cos(Rot), 0);
   z = vec3(0,0,1);
   mat3 M = mat3(x, y, z);
+  uv.x = (vPosition.x + FrameR)/Cols;
+  uv.y = -(vPosition.y + (FrameR/Cols))/Rows;
 
   vec3 eyePos = M * R * Size * (vPosition - vec3(0.5, 0.5, 0.0)) + Offset;
   gl_Position = MVP * vec4(eyePos, 1.0); 
