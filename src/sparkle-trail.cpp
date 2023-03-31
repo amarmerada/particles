@@ -37,11 +37,11 @@ public:
         renderer.loadTexture("particle", "../textures/star4.png", 0);
         for (int i = 0; i < size; i++) {
             Particle particle;
-            particle.color = vec4(agl::randomUnitCube(), 1);
+            particle.color = vec4(agl::randomUnitCube(), 0.7);
             particle.size = 0.25;
-            particle.rot = clamp((float)rand(), 0.0f, 6.1f);//0.0;
+            particle.rot = 0 ;//0.0;
             particle.pos = position;
-            particle.vel = vec3(position.y, -position.x, 0); //agl::randomUnitCube(); //normalize( vec3( sin((float)rand()/(float)(RAND_MAX)), cos((float)rand()/(float)(RAND_MAX)), 0 ) ); //  -normalize(vec3(position.y, position.x, 0.0) ); // tangent??
+            particle.vel = vec3(position.y, -position.x, 0) + agl::randomUnitCube();
             particle.time = glfwGetTime();
             mParticles.push_back(particle);
         }
@@ -49,53 +49,22 @@ public:
 
     void updateConfetti()
     {
-
         std::vector<Particle> altParticles;
-        //for (int i = 0; i < mParticles.size(); i++) {
         for (Particle p : mParticles) {
             float deltaTime = glfwGetTime() - p.time;
             p.pos += (deltaTime * p.vel * (float)0.1);
             p.rot += clamp((float)rand(), 0.0f, 1.0f);;
             p.color.a = p.color.a * 0.99;
             p.size += 0.005;
-            //(abs(p.pos.x) > 5 && abs(p.pos.y) > 5) || p.rot > 75 ||
-            if ((glfwGetTime() - p.time) > 3) { // abval, hould be 1+1, tangent line velocity
+            if ((glfwGetTime() - p.time) > 3) { 
                 p.color.a = 0.70;
                 p.pos = position;
                 p.time = glfwGetTime();
                 p.rot = 0;
-                p.size = (1.0 / 4.0);
-                float xfactor = ((float)rand() / (float)RAND_MAX);
-                float yfactor = ((float)rand() / (float)RAND_MAX);
-                if (position.y < 0) {
-                    if (yfactor > 0) {
-                        yfactor = yfactor * -1;
-                    }
-                }
-                else if (position.y == 0)
-                {
-                    yfactor = 0;
-                }
-                else {
-                    yfactor = abs(yfactor);
-                }
-                if (position.x < 0) {
-                    if (xfactor > 0) {
-                        xfactor = xfactor * -1;
-                    }
-                }
-                else if (position.x == 0)
-                {
-                    xfactor = 0;
-                }
-                else {
-                    xfactor = abs(xfactor);
-                }
-                //mParticles[i].vel = normalize(vec3( position.y + yfactor, -(position.x + xfactor), 0));
-                p.vel = agl::randomUnitCube(); // vec3(position.y, -position.x, 0) + 
-                printf("here\n");
+                p.size = (0.25);
+                p.vel = vec3(position.y, -position.x, 0) +  agl::randomUnitCube();
             }
-
+ 
             altParticles.push_back(p);
 
         }

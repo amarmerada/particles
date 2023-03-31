@@ -8,6 +8,7 @@ uniform float Rot;
 uniform vec3 Offset;
 uniform vec4 Color;
 uniform mat4 MVP;
+uniform float ratio;
 
 out vec4 color;
 out vec2 uv;
