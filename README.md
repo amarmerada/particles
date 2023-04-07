@@ -2,7 +2,7 @@
 
 Implements particle demos
 
-TODO: Add a representative image for your project here
+
 
 ## How to build
 
@@ -49,9 +49,9 @@ particles/build $ ../bin/explosion
 
 ## Demo of basic features
 
-TODO: Document the main demos your viewer (shaders + models)
+Snow - snow falls and collects at a specific threshold
 
 ## Unique features 
 
-TODO: Show the unique features you made
+
 

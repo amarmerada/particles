@@ -31,6 +31,7 @@ void main()
   y = vec3(sin(Rot), cos(Rot), 0);
   z = vec3(0,0,1);
   mat3 M = mat3(x, y, z);
+
   uv.x = (vPosition.x + FrameR)/Cols;
   uv.y = -(vPosition.y + (FrameR/Cols))/Rows;
 
