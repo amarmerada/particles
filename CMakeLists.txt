@@ -109,6 +109,9 @@ target_link_libraries(demo ${CORE})
 add_executable(snow src/snow.cpp ${SOURCES} ${SHADERS})
 target_link_libraries(snow ${CORE})
 
+add_executable(waterfall src/waterfall.cpp ${SOURCES} ${SHADERS})
+target_link_libraries(waterfall ${CORE})
+
 if (WIN32)
   source_group("shaders" FILES ${SHADERS})
   source_group("agl" FILES ${SOURCES})
