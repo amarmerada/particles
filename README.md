@@ -50,9 +50,12 @@ particles/build $ ../bin/explosion
 
 ## Demo of basic features
 
-Snow - snow falls and collects at a specific threshold
-
+Sparkle Trail - generates star with trailing sparkles
+Explosion -animates explosion using spritesheet
+Billboard axis - billboard always faces camera
 ## Unique features 
 
 
+Snow - snow falls and collects at a specific threshold
+Waterfall - waterfall animation
 
