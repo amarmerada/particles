@@ -2,6 +2,7 @@
 
 Implements particle demos
 
+![7i12e9](https://user-images.githubusercontent.com/67133103/231828319-b09e8c60-5409-4251-9036-9073cf674754.gif)
 
 
 ## How to build
